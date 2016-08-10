@@ -41,7 +41,7 @@ const bench = function (results){
             results[target][ct] = run(target, ct);
             process.stdout.write('...');
         });
-        process.stdout.write(' ' + ((new Date()) - t0 ) + 'ms');
+        process.stdout.write(' ' + ((new Date()) - t0 )/1000 + 's');
         console.log();
     });
 };
@@ -60,5 +60,6 @@ for (let i = 0; i < TOTAL; ++i) {
 }
 
 Fs.writeFileSync('./benchmark-result.json', JSON.stringify(total));
-Fs.writeFileSync('./stats-result.json', Stats(total));
+Fs.writeFileSync('./stats-result.json', JSON.stringify(Stats(total)));
+Fs.writeFileSync('./stats-result.txt', Stats.table(Stats(total)));
 

@@ -43,3 +43,16 @@ module.exports = function (results) {
 
     return aggregate;
 };
+
+module.exports.table = function (agg) {
+
+    const nList = Object.keys(agg[types[0]]);
+    let result = '';
+    result += 'n\n' + nList.join('\n');
+
+    types.forEach((type) => {
+
+        result += '\n\n' + type + '\n' + Object.keys(agg[type]).map((key) => agg[type][key]).join('\n');
+    });
+    return result;
+};
