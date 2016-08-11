@@ -3,10 +3,10 @@
  * Please refer to our terms for more information: https://www.sqreen.io/terms.html
  */
 'use strict';
-const TOTAL = 10;
+const TOTAL = 5;
 
 const NB_ROUND = 20;
-const MAX_ROUND = 100000000;
+const MAX_ROUND = Math.pow(10, 9);
 const ROUND_SIZE = MAX_ROUND / NB_ROUND;
 
 const SpawnSync = require('child_process').spawnSync;
